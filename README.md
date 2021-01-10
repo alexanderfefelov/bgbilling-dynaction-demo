@@ -12,6 +12,8 @@ git clone https://github.com/alexanderfefelov/bgbilling-dynaction-demo
 
 ## Привет, мир!
 
+[HelloWorld.java](dyn/com/github/alexanderfefelov/bgbilling/dynaction/demo/HelloWorld.java)
+
 В конфигурацию ядра добавьте:
 
 ```
@@ -100,6 +102,8 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 
 ## Микки Маус
 
+[MickeyMouse.java](dyn/com/github/alexanderfefelov/bgbilling/dynaction/demo/MickeyMouse.java)
+
 В конфигурацию ядра добавьте:
 
 ```
@@ -159,4 +163,58 @@ Transfer-Encoding: chunked
         <item id="Greek" title="Mikki Maous"/>
     </mickeyMouse>
 </data>
+```
+
+## Калькулятор
+
+[Calculator.java](dyn/com/github/alexanderfefelov/bgbilling/dynaction/demo/Calculator.java)
+
+В конфигурацию ядра добавьте:
+
+```
+# Dynaction: Привет, мир!
+# 
+dynaction:DemoDynaction.ActionCalculator=com.github.alexanderfefelov.bgbilling.dynaction.demo.Calculator
+#         │           │       │        │ │                                                             │
+#         └─────┬─────┘       └───┬────┘ └──────────────────────────────┬──────────────────────────────┘
+#               │                 │                                     │
+#             module            action                                class
+```
+
+### Вызов HTTP POST
+
+```
+http --verbose --check-status --form \
+  POST http://bgbilling-server.backpack.test:63081/billing/executer \
+  module=DemoDynaction action=Calculator user=admin pswd=admin a=3.14159 b=2.71828 op=add
+```
+
+Запрос:
+
+```
+POST /billing/executer HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 87
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Host: bgbilling-server.backpack.test:63081
+User-Agent: HTTPie/1.0.3
+
+module=DemoDynaction&action=Calculator&user=admin&pswd=admin&a=3.14159&b=2.71828&op=add
+```
+
+Ответ:
+
+```
+HTTP/1.1 200 OK
+Cache-control: no-cache, no-store, must-revalidate
+Content-Type: text/xml;charset=UTF-8
+Date: Sun, 10 Jan 2021 07:25:28 GMT
+Expires: Thu, 01 Jan 1970 00:00:01 GMT
+Last-Modified: Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: JSESSIONID=F0E5DE651FBF08D17C7061D7A7E46561; Path=/; HttpOnly
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?><data a="3.14159" b="2.71828" op="add" result="5.85987" status="ok"/>
 ```
