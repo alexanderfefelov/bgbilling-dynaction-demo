@@ -32,6 +32,8 @@ http --verbose --check-status \
   module==DemoDynaction action==HelloWorld user==admin pswd==admin
 ```
 
+Запрос:
+
 ```
 GET /billing/executer?module=DemoDynaction&action=HelloWorld&user=admin&pswd=admin HTTP/1.1
 Accept: */*
@@ -40,6 +42,8 @@ Connection: keep-alive
 Host: bgbilling-server.backpack.test:63081
 User-Agent: HTTPie/1.0.3
 ```
+
+Ответ:
 
 ```
 HTTP/1.1 200 OK
@@ -63,6 +67,8 @@ http --verbose --check-status --form \
   module=DemoDynaction action=HelloWorld user=admin pswd=admin
 ```
 
+Запрос:
+
 ```
 POST /billing/executer HTTP/1.1
 Accept: */*
@@ -75,6 +81,8 @@ User-Agent: HTTPie/1.0.3
 
 module=DemoDynaction&action=HelloWorld&user=admin&pswd=admin
 ```
+
+Ответ:
 
 ```
 HTTP/1.1 200 OK
@@ -112,6 +120,8 @@ http --verbose --check-status --form \
   module=DemoDynaction action=MickeyMouse user=admin pswd=admin
 ```
 
+Запрос:
+
 ```
 POST /billing/executer HTTP/1.1
 Accept: */*
@@ -124,6 +134,8 @@ User-Agent: HTTPie/1.0.3
 
 module=DemoDynaction&action=MickeyMouse&user=admin&pswd=admin
 ```
+
+Ответ:
 
 ```
 HTTP/1.1 200 OK
