@@ -1,5 +1,9 @@
 # bgbilling-dynaction-demo
 
+## Что это?
+
+bgbilling-dynaction-demo - это демонстрационная реализация dynaction для использования совместно с сервером [BGBilling](https://bgbilling.ru/).
+
 ## Как это установить?
 
 Склонируйте этот репозиторий:
@@ -16,7 +20,7 @@ git clone https://github.com/alexanderfefelov/bgbilling-dynaction-demo
 
 В конфигурацию ядра добавьте:
 
-```
+```properties
 # Dynaction: Привет, мир!
 # 
 dynaction:DemoDynaction.ActionHelloWorld=com.github.alexanderfefelov.bgbilling.dynaction.demo.HelloWorld
@@ -106,7 +110,7 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 
 В конфигурацию ядра добавьте:
 
-```
+```properties
 # Dynaction: Микки Маус
 # 
 dynaction:DemoDynaction.ActionMickeyMouse=com.github.alexanderfefelov.bgbilling.dynaction.demo.MickeyMouse
@@ -171,7 +175,7 @@ Transfer-Encoding: chunked
 
 В конфигурацию ядра добавьте:
 
-```
+```properties
 # Dynaction: Калькулятор
 # 
 dynaction:DemoDynaction.ActionCalculator=com.github.alexanderfefelov.bgbilling.dynaction.demo.Calculator
