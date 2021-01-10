@@ -27,7 +27,9 @@ dynaction:DemoDynaction.ActionHelloWorld=com.github.alexanderfefelov.bgbilling.d
 ### Вызов HTTP GET
 
 ```
-http --verbose --check-status GET http://bgbilling-server.backpack.test:63081/billing/executer module==DemoDynaction action==HelloWorld user==admin pswd==admin
+http --verbose --check-status \
+  GET http://bgbilling-server.backpack.test:63081/billing/executer \
+  module==DemoDynaction action==HelloWorld user==admin pswd==admin
 ```
 
 ```
@@ -56,7 +58,9 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 ### Вызов HTTP POST
 
 ```
-http --verbose --check-status --form POST http://bgbilling-server.backpack.test:63081/billing/executer module=DemoDynaction action=HelloWorld user=admin pswd=admin
+http --verbose --check-status --form \
+  POST http://bgbilling-server.backpack.test:63081/billing/executer \
+  module=DemoDynaction action=HelloWorld user=admin pswd=admin
 ```
 
 ```
