@@ -172,7 +172,7 @@ Transfer-Encoding: chunked
 В конфигурацию ядра добавьте:
 
 ```
-# Dynaction: Привет, мир!
+# Dynaction: Калькулятор
 # 
 dynaction:DemoDynaction.ActionCalculator=com.github.alexanderfefelov.bgbilling.dynaction.demo.Calculator
 #         │           │       │        │ │                                                             │
