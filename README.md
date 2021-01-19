@@ -222,3 +222,9 @@ Transfer-Encoding: chunked
 
 <?xml version="1.0" encoding="UTF-8"?><data a="3.14159" b="2.71828" op="add" result="5.85987" status="ok"/>
 ```
+
+## Что дальше?
+
+* Посмотрите, как можно расширить функционал BGBilling с помощью других механизмов:
+    * Dynservice - https://github.com/alexanderfefelov/bgbilling-dynservice-demo,
+    * Сервлеты - https://github.com/alexanderfefelov/bgbilling-servlet-demo.
