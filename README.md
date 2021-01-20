@@ -242,5 +242,5 @@ Transfer-Encoding: chunked
 ## Что дальше?
 
 * Посмотрите, как можно расширить функционал BGBilling с помощью других механизмов:
-    * Dynservice - https://github.com/alexanderfefelov/bgbilling-dynservice-demo,
-    * Сервлеты - https://github.com/alexanderfefelov/bgbilling-servlet-demo.
+    * Dynservice — https://github.com/alexanderfefelov/bgbilling-dynservice-demo,
+    * Сервлеты — https://github.com/alexanderfefelov/bgbilling-servlet-demo.
