@@ -23,11 +23,11 @@ git clone https://github.com/alexanderfefelov/bgbilling-dynaction-demo
 ```properties
 # Dynaction: Привет, мир!
 # 
-dynaction:DemoDynaction.ActionHelloWorld=com.github.alexanderfefelov.bgbilling.dynaction.demo.HelloWorld
-#         │           │       │        │ │                                                             │
-#         └─────┬─────┘       └───┬────┘ └──────────────────────────────┬──────────────────────────────┘
-#               │                 │                                     │
-#             module            action                                class
+#        Модуль       Действие                         Класс действия
+#          │             │                                   │
+#         ┌┴─┐       ┌───┴────┐ ┌────────────────────────────┴────────────────────────────────┐
+#         │  │       │        │ │                                                             │
+dynaction:demo.ActionHelloWorld=com.github.alexanderfefelov.bgbilling.dynaction.demo.HelloWorld
 ```
 
 ### Вызов HTTP GET
@@ -35,13 +35,17 @@ dynaction:DemoDynaction.ActionHelloWorld=com.github.alexanderfefelov.bgbilling.d
 ```
 http --verbose --check-status \
   GET http://bgbilling-server.backpack.test:63081/billing/executer \
-  module==DemoDynaction action==HelloWorld user==admin pswd==admin
+    module==demo action==HelloWorld user==admin pswd==admin
+#           │  │         │        │
+#           └┬─┘         └───┬────┘
+#            │               │
+#          Модуль         Действие
 ```
 
 Запрос:
 
 ```
-GET /billing/executer?module=DemoDynaction&action=HelloWorld&user=admin&pswd=admin HTTP/1.1
+GET /billing/executer?module=demo&action=HelloWorld&user=admin&pswd=admin HTTP/1.1
 Accept: */*
 Accept-Encoding: gzip, deflate
 Connection: keep-alive
@@ -70,7 +74,7 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 ```
 http --verbose --check-status --form \
   POST http://bgbilling-server.backpack.test:63081/billing/executer \
-  module=DemoDynaction action=HelloWorld user=admin pswd=admin
+  module=demo action=HelloWorld user=admin pswd=admin
 ```
 
 Запрос:
@@ -85,7 +89,7 @@ Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: bgbilling-server.backpack.test:63081
 User-Agent: HTTPie/1.0.3
 
-module=DemoDynaction&action=HelloWorld&user=admin&pswd=admin
+module=demo&action=HelloWorld&user=admin&pswd=admin
 ```
 
 Ответ:
@@ -113,11 +117,11 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 ```properties
 # Dynaction: Микки Маус
 # 
-dynaction:DemoDynaction.ActionMickeyMouse=com.github.alexanderfefelov.bgbilling.dynaction.demo.MickeyMouse
-#         │           │       │         │ │                                                              │
-#         └─────┬─────┘       └────┬────┘ └──────────────────────────────┬───────────────────────────────┘
-#               │                  │                                     │
-#             module             action                                class
+#        Модуль        Действие                          Класс действия
+#          │              │                                    │
+#         ┌┴─┐       ┌────┴────┐ ┌─────────────────────────────┴────────────────────────────────┐
+#         │  │       │         │ │                                                              │
+dynaction:demo.ActionMickeyMouse=com.github.alexanderfefelov.bgbilling.dynaction.demo.MickeyMouse
 ```
 
 ### Вызов HTTP POST
@@ -125,7 +129,11 @@ dynaction:DemoDynaction.ActionMickeyMouse=com.github.alexanderfefelov.bgbilling.
 ```
 http --verbose --check-status --form \
   POST http://bgbilling-server.backpack.test:63081/billing/executer \
-  module=DemoDynaction action=MickeyMouse user=admin pswd=admin
+    module=demo action=MickeyMouse user=admin pswd=admin
+#          │  │        │         │
+#          └┬─┘        └────┬────┘
+#           │               │
+#         Модуль         Действие
 ```
 
 Запрос:
@@ -140,7 +148,7 @@ Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: bgbilling-server.backpack.test:63081
 User-Agent: HTTPie/1.0.3
 
-module=DemoDynaction&action=MickeyMouse&user=admin&pswd=admin
+module=demo&action=MickeyMouse&user=admin&pswd=admin
 ```
 
 Ответ:
@@ -178,11 +186,11 @@ Transfer-Encoding: chunked
 ```properties
 # Dynaction: Калькулятор
 # 
-dynaction:DemoDynaction.ActionCalculator=com.github.alexanderfefelov.bgbilling.dynaction.demo.Calculator
-#         │           │       │        │ │                                                             │
-#         └─────┬─────┘       └───┬────┘ └──────────────────────────────┬──────────────────────────────┘
-#               │                 │                                     │
-#             module            action                                class
+#        Модуль       Действие                         Класс действия
+#          │             │                                   │
+#         ┌┴─┐       ┌───┴────┐ ┌────────────────────────────┴────────────────────────────────┐
+#         │  │       │        │ │                                                             │
+dynaction:demo.ActionCalculator=com.github.alexanderfefelov.bgbilling.dynaction.demo.Calculator
 ```
 
 ### Вызов HTTP POST
@@ -190,7 +198,11 @@ dynaction:DemoDynaction.ActionCalculator=com.github.alexanderfefelov.bgbilling.d
 ```
 http --verbose --check-status --form \
   POST http://bgbilling-server.backpack.test:63081/billing/executer \
-  module=DemoDynaction action=Calculator user=admin pswd=admin a=3.14159 b=2.71828 op=add
+    module=demo action=Calculator user=admin pswd=admin a=3.14159 b=2.71828 op=add
+#          │  │        │        │
+#          └┬─┘        └───┬────┘
+#           │              │
+#         Модуль        Действие
 ```
 
 Запрос:
@@ -205,7 +217,7 @@ Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: bgbilling-server.backpack.test:63081
 User-Agent: HTTPie/1.0.3
 
-module=DemoDynaction&action=Calculator&user=admin&pswd=admin&a=3.14159&b=2.71828&op=add
+module=demo&action=Calculator&user=admin&pswd=admin&a=3.14159&b=2.71828&op=add
 ```
 
 Ответ:
