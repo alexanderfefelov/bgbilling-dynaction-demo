@@ -2,7 +2,7 @@
 
 ## Что это?
 
-bgbilling-dynaction-demo - это демонстрационная реализация dynaction для использования совместно с сервером [BGBilling](https://bgbilling.ru/).
+bgbilling-dynaction-demo — это демонстрационная реализация dynaction для использования совместно с сервером [BGBilling](https://bgbilling.ru/).
 
 ## Как это установить?
 
@@ -32,7 +32,7 @@ dynaction:demo.ActionHelloWorld=com.github.alexanderfefelov.bgbilling.dynaction.
 
 ### Вызов HTTP GET
 
-```
+```bash
 http --verbose --check-status \
   GET http://bgbilling-server.backpack.test:63081/billing/executer \
     module==demo action==HelloWorld user==admin pswd==admin
@@ -71,10 +71,14 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 
 ### Вызов HTTP POST
 
-```
+```bash
 http --verbose --check-status --form \
   POST http://bgbilling-server.backpack.test:63081/billing/executer \
-  module=demo action=HelloWorld user=admin pswd=admin
+    module=demo action=HelloWorld user=admin pswd=admin
+#          │  │        │        │
+#          └┬─┘        └───┬────┘
+#           │              │
+#         Модуль        Действие
 ```
 
 Запрос:
@@ -108,7 +112,7 @@ bgbilling-message: SGVsbG8sIFdvcmxkIQ==
 <?xml version="1.0" encoding="UTF-8"?><data status="message">Hello, World!</data>
 ```
 
-## Микки Маус
+## Микки Маус — возвращаем коллекцию
 
 [MickeyMouse.java](dyn/com/github/alexanderfefelov/bgbilling/dynaction/demo/MickeyMouse.java)
 
@@ -126,7 +130,7 @@ dynaction:demo.ActionMickeyMouse=com.github.alexanderfefelov.bgbilling.dynaction
 
 ### Вызов HTTP POST
 
-```
+```bash
 http --verbose --check-status --form \
   POST http://bgbilling-server.backpack.test:63081/billing/executer \
     module=demo action=MickeyMouse user=admin pswd=admin
@@ -177,7 +181,7 @@ Transfer-Encoding: chunked
 </data>
 ```
 
-## Калькулятор
+## Калькулятор — передаём параметры
 
 [Calculator.java](dyn/com/github/alexanderfefelov/bgbilling/dynaction/demo/Calculator.java)
 
@@ -195,7 +199,7 @@ dynaction:demo.ActionCalculator=com.github.alexanderfefelov.bgbilling.dynaction.
 
 ### Вызов HTTP POST
 
-```
+```bash
 http --verbose --check-status --form \
   POST http://bgbilling-server.backpack.test:63081/billing/executer \
     module=demo action=Calculator user=admin pswd=admin a=3.14159 b=2.71828 op=add
